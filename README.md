@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1>
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=VOID!+%F0%9F%92%B3;Payment+Gateway+Automation;Stripe+%7C+Adyen+%7C+More..." alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=40&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=VOID!+%F0%9F%92%B3;Stripe+Hitter;Stripe+%7C+Checkout+%7C+Hitter" alt="Typing SVG" />
 </h1>
 
 <p>
@@ -31,7 +31,7 @@
 ## 🎯 What is VOID!?
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2000&pause=500&color=22C55E&center=true&vCenter=true&multiline=true&width=800&height=100&lines=Automated+Payment+Gateway+Testing+Platform;Test+Cards+Across+Multiple+Payment+Providers;Stripe+%7C+Adyen+%7C+And+More+Coming+Soon!;Fast+%E2%9A%A1+Reliable+%F0%9F%94%92+Easy+to+Use+%F0%9F%9A%80" alt="Description"/>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2000&pause=500&color=22C55E&center=true&vCenter=true&multiline=true&width=800&height=100&lines=Stripe+Checkout+Hitter;Fast+%E2%9A%A1+Reliable+%F0%9F%94%92+Easy+to+Use+%F0%9F%9A%80" alt="Description"/>
 </div>
 
 VOID! is a **stripe checkout hitter** tool that allows you proccess payment through api directly.
