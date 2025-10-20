@@ -1,6 +1,43 @@
 const https = require('https');
 const { parseCheckoutUrl, fetchCheckoutInfo } = require('./checkout-info');
 
+const LIST_ADDRESSES = [
+  { line1: '1501 Gaylord Trail', city: 'Grapevine', state: 'TX', postal_code: '76051' },
+  { line1: '221B Baker Street', city: 'London', state: 'LN', postal_code: 'NW1 6XE' },
+  { line1: '500 Main St', city: 'Springfield', state: 'IL', postal_code: '62701' },
+  { line1: '100 Market St', city: 'San Francisco', state: 'CA', postal_code: '94105' },
+  { line1: '742 Evergreen Terrace', city: 'Springfield', state: 'OR', postal_code: '97477' },
+  { line1: '12 Elm St', city: 'Boston', state: 'MA', postal_code: '02110' },
+  { line1: '350 Fifth Ave', city: 'New York', state: 'NY', postal_code: '10118' },
+  { line1: '1600 Pennsylvania Ave NW', city: 'Washington', state: 'DC', postal_code: '20500' },
+  { line1: '4059 Mt Lee Dr', city: 'Los Angeles', state: 'CA', postal_code: '90068' },
+  { line1: '1 Infinite Loop', city: 'Cupertino', state: 'CA', postal_code: '95014' },
+  { line1: '233 S Wacker Dr', city: 'Chicago', state: 'IL', postal_code: '60606' },
+  { line1: '221 Main St', city: 'Houston', state: 'TX', postal_code: '77002' },
+  { line1: '3500 Deer Creek Rd', city: 'Palo Alto', state: 'CA', postal_code: '94304' },
+  { line1: '123 Ocean Ave', city: 'Santa Monica', state: 'CA', postal_code: '90401' },
+  { line1: '77 Massachusetts Ave', city: 'Cambridge', state: 'MA', postal_code: '02139' },
+  { line1: '405 Lexington Ave', city: 'New York', state: 'NY', postal_code: '10174' },
+  { line1: '600 Montgomery St', city: 'San Francisco', state: 'CA', postal_code: '94111' },
+  { line1: '1234 Broadway', city: 'New York', state: 'NY', postal_code: '10001' },
+  { line1: '1 Microsoft Way', city: 'Redmond', state: 'WA', postal_code: '98052' },
+  { line1: '160 Spear St', city: 'San Francisco', state: 'CA', postal_code: '94105' },
+  { line1: '500 Terry A Francois Blvd', city: 'San Francisco', state: 'CA', postal_code: '94158' },
+  { line1: '1000 5th Ave', city: 'New York', state: 'NY', postal_code: '10028' },
+  { line1: '1355 Market St', city: 'San Francisco', state: 'CA', postal_code: '94103' },
+  { line1: '1 Liberty St', city: 'New York', state: 'NY', postal_code: '10006' },
+  { line1: '600 E 4th St', city: 'Austin', state: 'TX', postal_code: '78701' },
+  { line1: '2500 Broadway', city: 'New York', state: 'NY', postal_code: '10025' },
+  { line1: '1400 John F Kennedy Blvd', city: 'Philadelphia', state: 'PA', postal_code: '19107' },
+  { line1: '200 Central Park West', city: 'New York', state: 'NY', postal_code: '10024' },
+  { line1: '3500 5th Ave', city: 'Pittsburgh', state: 'PA', postal_code: '15213' },
+  { line1: '77 Hudson St', city: 'New York', state: 'NY', postal_code: '10013' }
+];
+
+function randomAddress() {
+  return LIST_ADDRESSES[Math.floor(Math.random() * LIST_ADDRESSES.length)];
+}
+
 function generateRandomBin() {
     const bins = [
         '424242', '400000', '510510', '555555', '222222',
@@ -228,13 +265,6 @@ async function attemptPayment({ checkoutUrl, card, retries = 0 }) {
     const initChecksum = info.initChecksum || '';
     const configId = info.configId || null;
 
-    const defaultAddress = {
-        line1: '1501 Gaylord Trail',
-        city: 'Grapevine',
-        state: 'TX',
-        postal_code: '76051'
-    };
-
     let attempts = 0;
     let lastError = null;
 
@@ -252,7 +282,7 @@ async function attemptPayment({ checkoutUrl, card, retries = 0 }) {
                 country: 'US',
                 name: 'Test User',
                 configId,
-                address: defaultAddress
+                address: randomAddress()
             });
 
             if (pmResponse.statusCode !== 200 || !pmResponse.data.id) {
